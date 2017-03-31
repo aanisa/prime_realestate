@@ -1,7 +1,7 @@
 //this is a config file
 module.exports = function(grunt) {
     grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'), 
+        pkg: grunt.file.readJSON('package.json'),
         uglify: {
             build: {
                 src: 'client/script/client.js',
@@ -23,9 +23,9 @@ module.exports = function(grunt) {
             },
             html: {
                 expand: true,
-                cwd: 'client/',
+                cwd: 'client/views',
                 src: ['index.html'],
-                dest: 'server/public/'
+                dest: 'server/public/views'
             },
             css: {
                 expand: true,

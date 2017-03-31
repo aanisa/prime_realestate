@@ -2,19 +2,19 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var path = require("path");
-var mongoose = require('mongoose');
+// var mongoose = require('mongoose');
 
 
-var mongoURI = "mongodb://herokuintro:intro@ds147920.mlab.com:47920/mongodtbs";
-var MongoDB = mongoose.connect(mongoURI).connection;
-
-MongoDB.on("error", function(err) {
-  console.log("Mongo Connection Error: " + err);
-});
-
-MongoDB.once("open", function() {
-  console.log('Woot Woot! Connected to Mongo');
-});
+// var mongoURI = "mongodb://localhost:27017/market";
+// var MongoDB = mongoose.connect(mongoURI).connection;
+//
+// MongoDB.on("error", function(err) {
+//   console.log("Mongo Connection Error: " + err);
+// });
+//
+// MongoDB.once("open", function() {
+//   console.log('Woot Woot! Connected to Mongo');
+// });
 
 
 app.set("port", (process.env.PORT || 5000));
