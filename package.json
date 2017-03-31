@@ -1,0 +1,29 @@
+{
+  "name": "weekend_chal_4",
+  "version": "1.0.0",
+  "description": "Weekend Challene 4: Grunt, Mongo, Bootstrap, mLab, Heroku",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aanisa/weekend_chal_4.git"
+  },
+  "author": "Anisa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aanisa/weekend_chal_4/issues"
+  },
+  "homepage": "https://github.com/aanisa/weekend_chal_4#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "bootstrap": "^3.3.7",
+    "express": "^4.15.2",
+    "grunt": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-uglify": "^2.2.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "jquery": "^3.2.1"
+  }
+}
