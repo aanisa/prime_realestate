@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 #Weekend Challenge 4 - Mongo and Bootstrap
 Welcome to weekend challenge 4! This weekend, you will take on the role of an application developer for a real estate company. You will be working with Data that we will be providing to you. It will be a collection called “listings”. Inside of it, you will find information for properties that are either for Rent or for Sale.
@@ -27,3 +28,6 @@ Create an interface for adding additional properties to the collection. You will
 
 #Pro Mode
 Host the application on Heroku and mLabs. You will need to transfer the data up to mLabs. In will need to research to accomplish this.
+=======
+# weekend_chal_4
+>>>>>>> fe3e15b1ca6bede15dcbd0dae685d4cf6f4526e9
