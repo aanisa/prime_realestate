@@ -4,8 +4,8 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
         uglify: {
             build: {
-                src: 'client/script/client.js',
-                dest: 'server/public/script/client.mn.js'
+                src: 'client/scripts/client.js',
+                dest: 'server/public/scripts/client.mn.js'
             }
         },
         copy: {

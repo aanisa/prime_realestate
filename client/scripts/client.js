@@ -2,9 +2,16 @@
 $(document).ready(function(){
 
 
-console.log("HEllo");
+console.log("HElloppppp");
 
-
+$.ajax({
+  type: "GET",
+  url: '/listings',
+  success: function (response) {
+    console.log('From DB...');
+    console.log(response);
+  }
+});
 
 
 

@@ -1,0 +1,1 @@
+$(document).ready(function(){console.log("HElloppppp"),$.ajax({type:"GET",url:"/listings",success:function(a){console.log("Here are the Listings from the DB"),console.log(a)}})});
