@@ -85,7 +85,7 @@ function appendListings(array) {
         var $al = $('.apartmentListings').append();
         if (newArray.rent === undefined) {
             $hl.append('<div class="col-md-2 newListing ">' +
-                // '<img src="imgs/home.png" alt="house" class="img-responsive">'+
+                '<img src="imgs/home.png" alt="house" class="img-responsive">'+
                 '<h4>' + newArray.city + '</h4>' +
                 '<p>' + newArray.sqft + ' sq.ft</p>' +
                 '<p>For Sale: $' + newArray.cost + '</p>' + '</div>');
@@ -93,7 +93,7 @@ function appendListings(array) {
         } //if rent is undefined because it's a house, append listing
         if (newArray.cost === undefined) {
             $al.append('<div class="col-md-2 newListing">' +
-                // '<img src="imgs/building.png" alt="building" class="img-responsive">'+
+                '<img src="imgs/building.png" alt="building" class="img-responsive">'+
                 '<h4>' + newArray.city + '</h4>' +
                 '<p>' + newArray.sqft + ' sq.ft</p>' +
                 '<p>For Rent: $' + newArray.rent + '</p>' + '</div>');
