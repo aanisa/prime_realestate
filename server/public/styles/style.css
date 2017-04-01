@@ -1,10 +1,11 @@
 h1 {
   text-align: center;
   font-size: 50px;
+  color: darkgreen;
 }
 
 [class*="col-md-12"]{
-  background-color: bisque;
+  background-color: whitesmoke;
   padding: 20px;
 }
 
@@ -17,9 +18,18 @@ h1 {
   text-align: center;
 }
 
-[class*="col-md-6"]{
+[class*="col-md-4"]{
   text-align: center;
   padding: 20px;
+}
+
+[class*="col-md-8"]{
+  text-align: center;
+  padding: 20px;
+}
+
+.houseListings .apartmentListings {
+
 }
 
 img {

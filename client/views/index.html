@@ -29,27 +29,30 @@
     </div>
 
     <div class="row">
-        <div class="col-md-6">
-            <form class="form-inline">
-                <label class="mr-sm-2" for="inlineFormCustomSelect">Looking To</label>
-                <select class="custom-select" id="formSelectProspect">
-                    <option selected>Choose..</option>
-                    <option value="1">Buy</option>
-                    <option value="2">Rent</option>
+        <div class="col-md-4">
+            <form class="form-inline searchListings">
+                <label class="mr-sm-2" for="inlineFormCustomSelect">Looking For</label>
+                <select class="custom-select" id="listingTypeSearch">
+                    <option></option>
+                    <option value="House">House</option>
+                    <option value="Apartment">Apartment</option>
                 </select>
-                <button type="submit" class="btn btn-small">Submit</button>
+                <button type="submit" class="searchBtn">Search</button>
             </form>
         </div>
 
-        <div class="col-md-6">
-            <form class="form-inline">
+        <di4v class="col-md-8">
+            <form class="form-inline addListing">
                 <label class="mr-sm-2" for="inlineFormCustomSelect">Add a Listing</label>
-                <select class="custom-select" id="formSelectOwner">
-                    <option selected>Choose..</option>
-                    <option value="1">Sale</option>
-                    <option value="2">Rent</option>
+                <select class="custom-select" id="listingTypeAdd">
+                    <option></option>
+                    <option value="House">House</option>
+                    <option value="Apartment">Apartment</option>
                 </select>
-                <button type="submit" class="btn btn-small">Submit</button>
+                <input type="text" placeholder="Property Value" id="valueOfProperty">
+                <input type="text" placeholder="Square Feet" id="sqftOfProperty">
+                <input type="text" placeholder="City" id="cityOfProperty">
+                <button type="submit" class="submitBtn">Submit</button>
             </form>
         </div>
     </div>

@@ -2,8 +2,21 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 
+
 var ListingSchema = mongoose.Schema({
   cost: Number,
+  sqft: Number,
+  city: String
+});
+
+var HouseListingSchema = mongoose.Schema({
+  cost: Number,
+  sqft: Number,
+  city: String
+});
+
+var AptListingSchema = mongoose.Schema({
+  rent: Number,
   sqft: Number,
   city: String
 });
@@ -11,8 +24,8 @@ var ListingSchema = mongoose.Schema({
 var Listings = mongoose.model("Listing", ListingSchema);
 
 //Both Schema in one listing
-// var users = mongoose.model('User', loginUserSchema, 'users');
-// var registerUser = mongoose.model('Registered', registerUserSchema, 'users');
+var HouseListing = mongoose.model('House', HouseListingSchema, 'Listings');
+var AptListing = mongoose.model('Apartment', AptListingSchema, 'Listings');
 
 
 //get all the listings from the DB
@@ -27,6 +40,36 @@ router.get('/', function(req, res) {
     console.log('sending...sent');
   });
 });
+
+// 
+// router.post('/addHouse', function(req, res) {
+// var house = new HouseListing();
+// house.cost = req.body.cost;
+// house.sqft = req.body.sqft;
+// house.city = req.body.city;
+// house.save(function(err, savedHouseList){
+//   if (err) {
+//     console.log(err);
+//     res.sendStatus(500);
+//   }
+//   res.send(savedHouseList);
+// });
+// });
+
+// router.post('/addApartment', function(req, res) {
+// var apartment = new AptListing();
+// apartment.rent = req.body.rent;
+// apartment.sqft = req.body.sqft;
+// apartment.city = req.body.city;
+// apartment.save(function(err, savedAptList){
+//   if (err) {
+//     console.log(err);
+//     res.sendStatus(500);
+//   }
+//   res.send(savedAptList);
+// });
+// });
+
 
 
 module.exports = router;
