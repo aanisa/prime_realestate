@@ -2,36 +2,7 @@
 $(document).ready(function(){
 console.log("HElloppppp");
 
-// getListings();
-
-$.ajax({
-  type: "GET",
-  url: '/listings',
-  success: function (response) {
-    console.log('From DB...');
-    // console.log(response);
-    for (var i = 0; i < response.length; i++) {
-      var newArray = response[i];
-
-      var $el = $('.viewListings').append('<div col-md-3 newListing></div>');
-
-
-      if (newArray.rent === undefined) {
-        $el.append('<p>' + newArray.city + '</p>' +
-                    '<p>'+ newArray.sqft + '</p>' +
-                    '<p>' + newArray.cost + '</p>');
-        console.log(newArray.cost);
-      }
-
-      if (newArray.cost === undefined) {
-        $el.append('<p>' + newArray.city + '</p>' +
-                    '<p>'+ newArray.sqft + '</p>' +
-                    '<p>' + newArray.rent + '</p>');
-        console.log(newArray.rent);
-      }
-    }
-  }
-});//GET ajax - get All the listings
+getListings();
 
 
 });//doc ready
@@ -45,12 +16,8 @@ function getListings() {
     success: function (response) {
       console.log('From DB...');
       // console.log(response);
-      for (var i = 0; i < response.length; i++) {
-        var newArray = response[i];
-
-        // console.log(newArray.city);
+      appendListings(response);
       }
-    }
   });//GET ajax - get All the listings
 }//
 
@@ -59,7 +26,22 @@ function getListings() {
 function appendListings(array) {
   for (var i = 0; i < array.length; i++) {
     var newArray = array[i];
-    var $el = $('.viewListings').append('<div></div>');
 
+    var $el = $('.viewListings').append();
+
+    if (newArray.rent === undefined) {
+      $el.append('<div class="col-md-3 newListing">'+
+                  '<p>' + newArray.city + '</p>' +
+                  '<p>'+ newArray.sqft + '</p>' +
+                  '<p>' + newArray.cost + '</p>'+'</div>');
+      // console.log(newArray.cost);
+    }//if rent is undefined because it's a house, append listing
+    if (newArray.cost === undefined) {
+      $el.append('<div class="col-md-3 newListing">'+
+                  '<p>' + newArray.city + '</p>' +
+                  '<p>'+ newArray.sqft + '</p>' +
+                  '<p>' + newArray.rent + '</p>'+'</div>');
+      // console.log(newArray.rent);
+    }//if rent is undefined because it's an apartment, append listing
   }
 }//loop through array and append to DOM
