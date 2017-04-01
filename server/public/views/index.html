@@ -22,19 +22,49 @@
 </head>
 
 <body>
-  <div class="row">
-    <div class="col-md-12">
-      <h1>House and Apartment Listings</h1>
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Minnesota Property Listings</h1>
+        </div>
     </div>
-  </div>
 
-<div class="row viewListings"></div>
-</div>
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-inline">
+                <label class="mr-sm-2" for="inlineFormCustomSelect">Looking To</label>
+                <select class="custom-select" id="formSelectProspect">
+                    <option selected>Choose..</option>
+                    <option value="1">Buy</option>
+                    <option value="2">Rent</option>
+                </select>
+                <button type="submit" class="btn btn-small">Submit</button>
+            </form>
+        </div>
+
+        <div class="col-md-6">
+            <form class="form-inline">
+                <label class="mr-sm-2" for="inlineFormCustomSelect">Add a Listing</label>
+                <select class="custom-select" id="formSelectOwner">
+                    <option selected>Choose..</option>
+                    <option value="1">Sale</option>
+                    <option value="2">Rent</option>
+                </select>
+                <button type="submit" class="btn btn-small">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="row houseListings"></div>
+    </div>
+
+    <div class="row apartmentListings"></div>
+    </div>
 
 
 
 
-<script src="vendors/js/bootstrap.js"></script>
+    <script src="vendors/js/bootstrap.js"></script>
 </body>
 
 </html>

@@ -26,20 +26,19 @@ function getListings() {
 function appendListings(array) {
   for (var i = 0; i < array.length; i++) {
     var newArray = array[i];
-
-    var $el = $('.viewListings').append();
-
+    var $hl = $('.houseListings').append();
+    var $al = $('.apartmentListings').append();
     if (newArray.rent === undefined) {
-      $el.append('<div class="col-md-2 newListing ">'+
-                  '<img src="imgs/home.png" alt="house" class="img-responsive">'+
+      $hl.append('<div class="col-md-2 newListing ">'+
+                  // '<img src="imgs/home.png" alt="house" class="img-responsive">'+
                   '<h4>' + newArray.city + '</h4>' +
                   '<p>'+ newArray.sqft + ' sqft</p>' +
                   '<p>For Sale: $' + newArray.cost + '</p>'+'</div>');
       // console.log(newArray.cost);
     }//if rent is undefined because it's a house, append listing
     if (newArray.cost === undefined) {
-      $el.append('<div class="col-md-2 newListing">'+
-                  '<img src="imgs/building.png" alt="building" class="img-responsive">'+
+      $al.append('<div class="col-md-2 newListing">'+
+                  // '<img src="imgs/building.png" alt="building" class="img-responsive">'+
                   '<h4>' + newArray.city + '</h4>' +
                   '<p>'+ newArray.sqft + ' sqft</p>' +
                   '<p>For Rent: $' + newArray.rent + '</p>'+'</div>');
