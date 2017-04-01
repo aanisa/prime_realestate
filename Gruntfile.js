@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 
         },
         watch: {
-            files: ['client/script/*.js', 'client/views/*.html', 'client/styles/*.css'],
+            files: ['client/scripts/*.js', 'client/views/*.html', 'client/styles/*.css'],
             tasks: ['uglify', 'copy']
         }
 
