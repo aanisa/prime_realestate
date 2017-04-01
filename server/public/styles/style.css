@@ -1,3 +1,21 @@
-.newListing {
-  border: darkgray 1px;
+h1 {
+  text-align: center;
+}
+
+[class*="col-md-2"]{
+  background-color: honeydew;
+  min-height: 10px;
+  border-radius: 15px;
+  border: solid grey;
+  margin: 20px;
+  text-align: center;
+}
+
+img {
+
+   margin: auto;
+   margin-top: 10px;
+   left: 0;
+   right: 0;
+
 }

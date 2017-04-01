@@ -17,8 +17,8 @@ module.exports = function(grunt) {
             },
             bootstrap: {
                 expand: true,
-                cwd: 'node_modules/bootstrap/dist/css/',
-                src: ['bootstrap.css'],
+                cwd: 'node_modules/bootstrap/dist/',
+                src: ['*'],
                 dest: 'server/public/vendors/'
             },
             html: {
