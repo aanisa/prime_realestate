@@ -13,13 +13,20 @@ $.ajax({
     for (var i = 0; i < response.length; i++) {
       var newArray = response[i];
 
-      // console.log(newArray.rent);
+      var $el = $('.viewListings').append('<div col-md-3 newListing></div>');
+
 
       if (newArray.rent === undefined) {
+        $el.append('<p>' + newArray.city + '</p>' +
+                    '<p>'+ newArray.sqft + '</p>' +
+                    '<p>' + newArray.cost + '</p>');
         console.log(newArray.cost);
       }
-      
+
       if (newArray.cost === undefined) {
+        $el.append('<p>' + newArray.city + '</p>' +
+                    '<p>'+ newArray.sqft + '</p>' +
+                    '<p>' + newArray.rent + '</p>');
         console.log(newArray.rent);
       }
     }
