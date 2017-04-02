@@ -5,7 +5,8 @@ var path = require("path");
 var listing = require('./routes/listings.js');
 
 var mongoose = require('mongoose');
-var mongoURI = "mongodb://localhost:27017/realestate";
+//link from mLabs to connect db
+var mongoURI = "mongodb://listings:property@ds147920.mlab.com:47920/realestate";
 var MongoDB = mongoose.connect(mongoURI).connection;
 
 MongoDB.on("error", function(err) {
