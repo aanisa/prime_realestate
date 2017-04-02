@@ -21,11 +21,11 @@ var AptListingSchema = mongoose.Schema({
   city: String
 });
 
-var Listings = mongoose.model("Listing", ListingSchema);
+var Listings = mongoose.model("listings", ListingSchema);
 
 //Both Schema in one listing
-var HouseListing = mongoose.model('House', HouseListingSchema, 'Listings');
-var AptListing = mongoose.model('Apartment', AptListingSchema, 'Listings');
+var HouseListing = mongoose.model('House', HouseListingSchema, 'listings');
+var AptListing = mongoose.model('Apartment', AptListingSchema, 'listings');
 
 
 //get all the listings from the DB
@@ -41,34 +41,38 @@ router.get('/', function(req, res) {
   });
 });
 
-// 
-// router.post('/addHouse', function(req, res) {
-// var house = new HouseListing();
-// house.cost = req.body.cost;
-// house.sqft = req.body.sqft;
-// house.city = req.body.city;
-// house.save(function(err, savedHouseList){
-//   if (err) {
-//     console.log(err);
-//     res.sendStatus(500);
-//   }
-//   res.send(savedHouseList);
-// });
-// });
 
-// router.post('/addApartment', function(req, res) {
-// var apartment = new AptListing();
-// apartment.rent = req.body.rent;
-// apartment.sqft = req.body.sqft;
-// apartment.city = req.body.city;
-// apartment.save(function(err, savedAptList){
-//   if (err) {
-//     console.log(err);
-//     res.sendStatus(500);
-//   }
-//   res.send(savedAptList);
-// });
-// });
+router.post('/addHouse', function(req, res) {
+var house = new HouseListing();
+house.cost = req.body.cost;
+house.sqft = req.body.sqft;
+house.city = req.body.city;
+
+house.save(function(err, savedHouseList){
+  if (err) {
+    console.log(err);
+    res.sendStatus(500);
+  }
+  res.send(savedHouseList);
+  console.log('got it...savd to DB');
+});
+});
+
+
+router.post('/addApartment', function(req, res) {
+var apartment = new AptListing();
+apartment.rent = req.body.rent;
+apartment.sqft = req.body.sqft;
+apartment.city = req.body.city;
+
+apartment.save(function(err, savedAptList){
+  if (err) {
+    console.log(err);
+    res.sendStatus(500);
+  }
+  res.send(savedAptList);
+});
+});
 
 
 

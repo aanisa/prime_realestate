@@ -38,3 +38,9 @@ img {
    left: 0;
    right: 0;
 }
+
+button {
+  background-color: lightgrey;
+  border-radius: grey;
+  border: solid 1px;
+}

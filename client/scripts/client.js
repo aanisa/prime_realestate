@@ -2,48 +2,23 @@ $(document).ready(function() {
     console.log("HElloppppp");
 
     getListings();
-
-
-    // function addHouseListing() {
-    //   $.ajax({
-    //     type: "POST",
-    //     url: '/listings/addHouse',
-    //     success: function (response) {
-    //       console.log('To DB...');
-    //       console.log(response);
-    //       }
-    // });
-    // }
-
-
-    // function addAppListing() {
-    //   $.ajax({
-    //     type: "POST",
-    //     url: '/listings/addApartment',
-    //     success: function (response) {
-    //       console.log('To DB...');
-    //       console.log(response);
-    //       }
-    // });
-    // }
+    searchListingsByType();
 
 
     // function addListingbyType() {
         $('.addListing').on('submit', function(event) {
             event.preventDefault();
-            console.log($('#valueOfProperty').val());
-            console.log($('#sqftOfProperty').val());
-            console.log($('#cityOfProperty').val());
-            console.log($('#listingTypeAdd').val());
 
             var listingType = $('#listingTypeAdd').val();
 
             if (listingType === 'House') {
                 console.log('House Added');
+                addHouseListing();
             }
 
             if (listingType === 'Apartment') {
                 console.log('Apartment Added');
+                addAppListing();
             }
             //empty input value and select option
             $('#valueOfProperty').val('');
@@ -55,15 +30,9 @@ $(document).ready(function() {
     // } //
 
 
-    // function searchListingsbyType() {
-        $('.searchListings').on('submit', function() {
-            event.preventDefault();
-            console.log($('#listingTypeSearch').val());
 
-            //empty select option
-            $('#listingTypeSearch').val('');
-        });
-    // } //
+
+
 
 
 
@@ -110,3 +79,58 @@ function appendListings(array) {
         } //if rent is undefined because it's an apartment, append listing
     }
 } //loop through array and append to DOM
+
+
+function searchListingsByType() {
+  $('.searchListings').on('submit', function() {
+      event.preventDefault();
+      // console.log($('#listingTypeSearch').val());
+
+      var listingType = $('#listingTypeSearch').val();
+
+      if (listingType == "House") {
+        console.log('Display houses');
+      } else if (listingType == 'Apartment') {
+        console.log('Display apartments');
+      }
+
+      //empty select option
+      $('#listingTypeSearch').val('');
+  });
+}
+
+
+
+
+function addHouseListing() {
+  $.ajax({
+    type: "POST",
+    url: '/listings/addHouse',
+    data: {
+          cost: $('#valueOfProperty').val(),
+          sqft: $('#sqftOfProperty').val(),
+          city: $('#cityOfProperty').val()
+          },
+    success: function (response) {
+      console.log('House To DB...');
+      console.log(response);
+      }
+});
+}
+
+
+function addAppListing() {
+  $.ajax({
+    type: "POST",
+    url: '/listings/addApartment',
+    data: {
+          cost: $('#valueOfProperty').val(),
+          sqft: $('#sqftOfProperty').val(),
+          city: $('#cityOfProperty').val()
+          },
+    success: function (response) {
+      console.log('Apartment To DB...');
+      console.log(response);
+      }
+});
+}
