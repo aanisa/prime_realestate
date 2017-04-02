@@ -7,7 +7,7 @@ $(document).ready(function() {
 
       $('.searchListings').on('submit', function() {
           event.preventDefault();
-          // console.log($('#listingTypeSearch').val());
+          console.log($('#listingTypeSearch').val());
 
           var listingType = $('#listingTypeSearch').val();
           if (listingType == "House") {
@@ -18,6 +18,11 @@ $(document).ready(function() {
           if (listingType == 'Apartment') {
             console.log('Display apartments');
             $('.house').hide();
+            $('.apartment').show();
+          }
+          if (listingType === '') {
+            console.log('Display All');
+            $('.house').show();
             $('.apartment').show();
           }
           //empty select option
