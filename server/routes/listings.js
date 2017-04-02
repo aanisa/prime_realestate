@@ -54,7 +54,7 @@ house.save(function(err, savedHouseList){
     res.sendStatus(500);
   }
   res.send(savedHouseList);
-  console.log('got it...savd to DB');
+  console.log('got it...saved to DB');
 });
 });
 
@@ -71,6 +71,7 @@ apartment.save(function(err, savedAptList){
     res.sendStatus(500);
   }
   res.send(savedAptList);
+  console.log('got it...saved to DB');
 });
 });
 

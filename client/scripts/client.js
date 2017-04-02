@@ -2,37 +2,28 @@ $(document).ready(function() {
     console.log("HElloppppp");
 
     getListings();
-    searchListingsByType();
+    addListingbyType();
 
 
-    // function addListingbyType() {
-        $('.addListing').on('submit', function(event) {
-            event.preventDefault();
+      $('.searchListings').on('submit', function() {
+          event.preventDefault();
+          // console.log($('#listingTypeSearch').val());
 
-            var listingType = $('#listingTypeAdd').val();
-
-            if (listingType === 'House') {
-                console.log('House Added');
-                addHouseListing();
-            }
-
-            if (listingType === 'Apartment') {
-                console.log('Apartment Added');
-                addAppListing();
-            }
-            //empty input value and select option
-            $('#valueOfProperty').val('');
-            $('#sqftOfProperty').val('');
-            $('#cityOfProperty').val('');
-            $('#listingTypeAdd').val('');
-        }); //
-
-    // } //
-
-
-
-
-
+          var listingType = $('#listingTypeSearch').val();
+          if (listingType == "House") {
+            console.log('Display houses');
+            $('.apartment').hide();
+            $('.house').show();
+          }
+          if (listingType == 'Apartment') {
+            console.log('Display apartments');
+            $('.house').hide();
+            $('.apartment').show();
+          }
+          //empty select option
+          $('#listingTypeSearch').val('');
+      });
+    //app breaks when this function is placed outside doc.ready. No idea why :/
 
 
 
@@ -62,7 +53,7 @@ function appendListings(array) {
         var $al = $('.apartmentListings').append();
         //append listings in two different containers depinding on type
         if (newArray.rent === undefined) {
-            $hl.append('<div class="col-md-2 newListing ">' +
+            $hl.append('<div class="col-md-2 house ">' +
                 '<img src="imgs/home.png" alt="house" class="img-responsive">' +
                 '<h4>' + newArray.city + '</h4>' +
                 '<p>' + newArray.sqft + ' sq.ft</p>' +
@@ -70,7 +61,7 @@ function appendListings(array) {
             // console.log(newArray.cost);
         } //if rent is undefined because it's a house, append listing
         if (newArray.cost === undefined) {
-            $al.append('<div class="col-md-2 newListing">' +
+            $al.append('<div class="col-md-2 apartment">' +
                 '<img src="imgs/building.png" alt="building" class="img-responsive">' +
                 '<h4>' + newArray.city + '</h4>' +
                 '<p>' + newArray.sqft + ' sq.ft</p>' +
@@ -80,24 +71,6 @@ function appendListings(array) {
     }
 } //loop through array and append to DOM
 
-
-function searchListingsByType() {
-  $('.searchListings').on('submit', function() {
-      event.preventDefault();
-      // console.log($('#listingTypeSearch').val());
-
-      var listingType = $('#listingTypeSearch').val();
-
-      if (listingType == "House") {
-        console.log('Display houses');
-      } else if (listingType == 'Apartment') {
-        console.log('Display apartments');
-      }
-
-      //empty select option
-      $('#listingTypeSearch').val('');
-  });
-}
 
 
 
@@ -113,7 +86,6 @@ function addHouseListing() {
           },
     success: function (response) {
       console.log('House To DB...');
-      console.log(response);
       }
 });
 }
@@ -124,13 +96,36 @@ function addAppListing() {
     type: "POST",
     url: '/listings/addApartment',
     data: {
-          cost: $('#valueOfProperty').val(),
+          rent: $('#valueOfProperty').val(),
           sqft: $('#sqftOfProperty').val(),
           city: $('#cityOfProperty').val()
           },
     success: function (response) {
       console.log('Apartment To DB...');
-      console.log(response);
       }
 });
 }
+
+
+function addListingbyType() {
+    $('.addListing').on('submit', function(event) {
+        event.preventDefault();
+
+        var listingType = $('#listingTypeAdd').val();
+
+        if (listingType === 'House') {
+            console.log('House Added');
+            addHouseListing();
+        }//add house listing to DB - if option value is house, assign cost
+
+        if (listingType === 'Apartment') {
+            console.log('Apartment Added');
+            addAppListing();
+        }//add house listing to DB - if option value is apt, assign rent
+        //empty input value and select option
+        $('#valueOfProperty').val('');
+        $('#sqftOfProperty').val('');
+        $('#cityOfProperty').val('');
+        $('#listingTypeAdd').val('');
+    }); //
+} //
