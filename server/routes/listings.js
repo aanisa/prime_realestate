@@ -3,11 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 
 
-var ListingSchema = mongoose.Schema({
-  cost: Number,
-  sqft: Number,
-  city: String
-});
+var ListingSchema = mongoose.Schema({});
 
 var HouseListingSchema = mongoose.Schema({
   cost: Number,
