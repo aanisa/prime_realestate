@@ -20,8 +20,8 @@ var ApartmentSchema = mongoose.Schema({
 var Listings = mongoose.model("listings", ListingSchema);
 
 //Both Schema in one listing
-var HouseListings = mongoose.model('houses', HouseListingSchema, 'listings');
-var AptListings = mongoose.model('apartments', AptListingSchema, 'listings');
+var HouseListings = mongoose.model('houses', HouseSchema, 'listings');
+var AptListings = mongoose.model('apartments', ApartmentSchema, 'listings');
 //without 3rd property, 'listings', mongo would create a new collection called apartment or house and save the data there
 //this 3rd property is where we want to save the new data. It's the existing collection
 

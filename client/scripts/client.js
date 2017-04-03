@@ -52,6 +52,8 @@ function getListings() {
 
 
 function appendListings(array) {
+  $('.houseListings').empty();
+  $('.apartmentListings').empty();
     for (var i = 0; i < array.length; i++) {
       //to have new ones appear on top: for (var 1=array.length -1; 1>=0, i--);
         var newArray = array[i];
@@ -65,7 +67,8 @@ function appendListings(array) {
                 '<img src="imgs/home.png" alt="house" class="img-responsive">' +
                 '<h4>' + newArray.city + '</h4>' +
                 '<p>' + newArray.sqft + ' sq.ft</p>' +
-                '<p>For Sale: $' + newArray.cost + '</p>' + '</div>');
+                '<p>$' + newArray.cost + '</p>' +
+                '<h4 id="forSale"> For Sale </h4>'+'</div>');
             // console.log(newArray.cost);
         } //if rent is undefined because it's a house, append listing
         if (newArray.cost === undefined) {
@@ -73,7 +76,8 @@ function appendListings(array) {
                 '<img src="imgs/building.png" alt="building" class="img-responsive">' +
                 '<h4>' + newArray.city + '</h4>' +
                 '<p>' + newArray.sqft + ' sq.ft</p>' +
-                '<p>For Rent: $' + newArray.rent + '</p>' + '</div>');
+                '<p>$' + newArray.rent + '</p>' +
+                '<h4 id="forRent"> For Rent </h4>'+'</div>');
             // console.log(newArray.rent);
         } //if rent is undefined because it's an apartment, append listing
     }

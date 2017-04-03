@@ -4,6 +4,14 @@ h1 {
   color: darkgreen;
 }
 
+#forSale{
+  background-color: lightsalmon ;
+}
+
+#forRent{
+  background-color: indianred ;
+}
+
 [class*="col-md-12"]{
   background-color: whitesmoke;
   padding: 20px;
