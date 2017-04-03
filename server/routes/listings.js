@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 
-
+//define model for each schema below:
 var ListingSchema = mongoose.Schema({});
 //this doesn't need to contain anything since we are only getting data not saving
 var HouseListingSchema = mongoose.Schema({
