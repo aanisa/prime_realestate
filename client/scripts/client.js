@@ -14,22 +14,22 @@ $(document).ready(function() {
             console.log('Display houses');
             $('.apartment').hide();
             $('.house').show();
-        }
+        }//if select 'house' from dropdowm display only the houses
         if (listingType == 'Apartment') {
             console.log('Display apartments');
             $('.house').hide();
             $('.apartment').show();
-        }
+        }//if select 'apartment' from dropdown display only the houses
         if (listingType === '') {
             console.log('Display All');
             $('.house').show();
             $('.apartment').show();
-        }
+        }//if don't select from dropdwon, display all listings
         //empty select option
         $('#listingTypeSearch').val('');
     });
     // }
-    //app breaks when this function is placed outside doc.ready. No idea why :/
+    //this doesn't work breaks when placed in a function :/ ?
 
 
 
@@ -57,7 +57,8 @@ function appendListings(array) {
 
         var $hl = $('.houseListings').append();
         var $al = $('.apartmentListings').append();
-        //append listings in two different containers depinding on type
+        //append listings in two different containers depinding on type of listing
+
         if (newArray.rent === undefined) {
             $hl.append('<div class="col-md-2 house ">' +
                 '<img src="imgs/home.png" alt="house" class="img-responsive">' +
@@ -80,7 +81,6 @@ function appendListings(array) {
 
 
 
-
 function addHouseListing() {
     $.ajax({
         type: "POST",
@@ -93,9 +93,8 @@ function addHouseListing() {
         success: function(response) {
             console.log('House To DB...');
         }
-    });
+    });//send input data for new house listing to the server -> db
 }
-
 
 function addAppListing() {
     $.ajax({
@@ -109,7 +108,7 @@ function addAppListing() {
         success: function(response) {
             console.log('Apartment To DB...');
         }
-    });
+    });//send input data for new house listing to the server -> db
 }
 
 
