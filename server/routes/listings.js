@@ -5,13 +5,13 @@ var mongoose = require('mongoose');
 //define model for each schema below:
 var ListingSchema = mongoose.Schema({});
 //this doesn't need to contain anything since we are only getting data not saving
-var HouseListingSchema = mongoose.Schema({
+var HouseSchema = mongoose.Schema({
   cost: Number,
   sqft: Number,
   city: String
 });
 
-var AptListingSchema = mongoose.Schema({
+var ApartmentSchema = mongoose.Schema({
   rent: Number,
   sqft: Number,
   city: String
@@ -20,8 +20,8 @@ var AptListingSchema = mongoose.Schema({
 var Listings = mongoose.model("listings", ListingSchema);
 
 //Both Schema in one listing
-var HouseListing = mongoose.model('House', HouseListingSchema, 'listings');
-var AptListing = mongoose.model('Apartment', AptListingSchema, 'listings');
+var HouseListings = mongoose.model('houses', HouseListingSchema, 'listings');
+var AptListings = mongoose.model('apartments', AptListingSchema, 'listings');
 //without 3rd property, 'listings', mongo would create a new collection called apartment or house and save the data there
 //this 3rd property is where we want to save the new data. It's the existing collection
 
@@ -42,7 +42,7 @@ router.get('/', function(req, res) {
 router.post('/addHouse', function(req, res) {
 //can set var listing = req.body; for readability. since using it in multiple different places
 
-var house = new HouseListing();
+var house = new HouseListings();
 house.cost = req.body.cost;
 house.sqft = req.body.sqft;
 house.city = req.body.city;
@@ -59,7 +59,7 @@ house.save(function(err, savedHouseList){
 
 //save the new apartment listings to the db
 router.post('/addApartment', function(req, res) {
-var apartment = new AptListing();
+var apartment = new AptListings();
 apartment.rent = req.body.rent;
 apartment.sqft = req.body.sqft;
 apartment.city = req.body.city;
