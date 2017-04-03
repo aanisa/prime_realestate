@@ -53,6 +53,7 @@ function getListings() {
 
 function appendListings(array) {
     for (var i = 0; i < array.length; i++) {
+      //to have new ones appear on top: for (var 1=array.length -1; 1>=0, i--);
         var newArray = array[i];
 
         var $hl = $('.houseListings').append();
