@@ -26,4 +26,3 @@ Create an interface for adding additional properties to the collection. You will
 
 ## Pro Mode
 Host the application on Heroku and mLabs. You will need to transfer the data up to mLabs. In will need to research to accomplish this.
-
