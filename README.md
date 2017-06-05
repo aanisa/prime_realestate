@@ -1,4 +1,4 @@
-# Prime Digital Academy
+# Prime Digital Academy - Code Challenge
 
 ## Goal 
 This weekend, you will take on the role of an application developer for a real estate company. You will be working with Data that we will be providing to you. It will be a collection called “listings”. Inside of it, you will find information for properties that are either for Rent or for Sale.
